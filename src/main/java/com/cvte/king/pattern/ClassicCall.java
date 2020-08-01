@@ -16,9 +16,9 @@ public class ClassicCall {
     public static String king = "Life is a journey, not the destination, but the scenery along the should be and the mood  at the view。";
     public static void main(String[] args) {
         ClassicCall classicCall = new ClassicCall();
-//        classicCall.classicCall();
+        classicCall.classicCall();
 //        classicCall.stringMatch();
-        classicCall.stringMethods();
+//        classicCall.stringMethods();
 
     }
 
@@ -27,8 +27,11 @@ public class ClassicCall {
      */
     public void classicCall() {
         //经典调用方式，可多次重复使用，线程不安全
-        Pattern pattern = Pattern.compile("a*b");
-        Matcher matcher = pattern.matcher("aaaaa");
+        Pattern pattern = Pattern.compile(king);
+        Matcher matcher = pattern.matcher(king);
+        while (matcher.find()) {
+            System.out.println("Match:"+matcher.group()+",start:"+matcher.start()+",end"+matcher.end());
+        }
         boolean matches = matcher.matches();
         //经典调用方式，仅使用一次,线程安全
         boolean aaaa = Pattern.matches("a*b", "aaaa");
